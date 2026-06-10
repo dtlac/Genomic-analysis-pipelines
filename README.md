@@ -1,2 +1,2 @@
-# Bioinformatics-pipelines
-Bioinformatics pipelines
+# Genomic-analysis-pipelines
+Genomic analysis pipelines
