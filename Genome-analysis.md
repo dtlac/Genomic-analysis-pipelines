@@ -239,13 +239,12 @@ MQ < 50
 
 - SNPs in repeat regions with repeat count ≥10 flagged as false positives.
 - INDELs inside repeat regions flagged as false positives.
-```
 
 #### Stage E: Repeat-Based Filtering
 
 - Final step of filtering SNPs by eyeballing in IGV.
 - Final step of filtering INDELs by eyeballing in IGV.
-
+```
 ---
 
 ## Usage
