@@ -56,8 +56,8 @@ I --> K[INDEL Filtering]
 J --> L[Filtered SNPs TSV]
 K --> M[Filtered INDELs TSV]
 
-L --> N[Manual filtered SNPs VCF]
-M --> O[Manual filtered INDELs VCF]
+L --> N[Manual Filtering
+M --> N
 ```
 
 ---
@@ -240,10 +240,9 @@ MQ < 50
 - SNPs in repeat regions with repeat count ≥10 flagged as false positives.
 - INDELs inside repeat regions flagged as false positives.
 
-#### Stage E: Repeat-Based Filtering
+#### Stage E: Manual Filtering
 
-- Final step of filtering SNPs by eyeballing in IGV.
-- Final step of filtering INDELs by eyeballing in IGV.
+- Final step of filtering SNPs and INDELs by using IGV visualization to check ambiguous variants.
 ```
 ---
 
