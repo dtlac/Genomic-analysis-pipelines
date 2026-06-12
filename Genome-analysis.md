@@ -56,7 +56,7 @@ I --> K[INDEL Filtering]
 J --> L[Filtered SNPs TSV]
 K --> M[Filtered INDELs TSV]
 
-L --> N[Manual Filtering
+L --> N[Manual Filtering]
 M --> N
 ```
 
