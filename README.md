@@ -97,12 +97,18 @@ M --> N
 
 ### 2. Index Reference Genome
 
-**Tool:** BWA
+**Tool:** BWA, samtools, GATK
 
 Builds the BWT/SA index required for alignment.
 
 ```bash
 bwa index -a bwtsw reference.fa
+```
+```bash
+samtools faidx reference.fa
+```
+```bash
+gatk CreateSequenceDictionary -R reference.fa -O reference.dict
 ```
 
 Optional:
