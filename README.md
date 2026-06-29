@@ -36,7 +36,7 @@ A[Raw FASTQ Reads]
 
 A --> B[Quality Trimming<br/>Trimmomatic]
 
-R[Index Reference Genome<br/>BWA index<br/>samtools faidx<br/>GATK CreateSequenceDictionary]
+R[Index Reference Genome<br/>BWA<br/>samtools<br/>GATK]
 
 B --> C[Align Reads + Sort BAM]
 R --> C
