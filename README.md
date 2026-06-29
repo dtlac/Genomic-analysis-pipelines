@@ -243,78 +243,6 @@ MQ < 50
 #### Stage E: Manual Filtering
 
 - Final step of filtering SNPs and INDELs by using IGV visualization to check ambiguous variants.
-```
----
-
-## Usage
-
-### Basic Run
-
-```bash
-python genomic_variant_pipeline.py \
-    --project-dir project \
-    --ref reference.fa \
-    --ancestor-vcf ancestor1.vcf.gz \
-    --ancestor-vcf ancestor2.vcf.gz \
-    --ploidy 2 \
-    --threads 16
-```
-
-### Resume Pipeline
-
-```bash
-python genomic_variant_pipeline.py \
-    --start-step 5
-```
-
-### Skip Reference Indexing
-
-```bash
-python genomic_variant_pipeline.py \
-    --skip-index
-```
-
----
-
-## Script
-
-```python
-#!/usr/bin/env python3
-
-"""
-Genomic Variant Calling Pipeline
-
-End-to-end pipeline:
-raw FASTQ → filtered SNP/INDEL tables
-"""
-```
-
-Place the full script in:
-
-```text
-genomic_variant_pipeline.py
-```
-
-and reference it from the repository.
-
----
-
-## Outputs
-
-```text
-Filtered_against_ancestors/
-SNP/
-INDELS/
-```
-
-Final deliverables:
-
-```text
-*_output.tsv
-*_falsepos.tsv
-```
-
-containing filtered SNP and INDEL calls and repeat-region false-positive classifications.
 
 ---
 
@@ -333,7 +261,7 @@ Mode B — raw FASTQ ancestors:
 ### GATK in base, other tools in genome-analysis env, Mode A ancestors
 
 ```bash
-python genomic_variant_pipeline.py \
+python genomic_analysis_pipeline.py \
     --project-dir      /data/project \
     --ref-dir          /refs/genome_dir \
     --ref-name         genome_v1.fa \
@@ -347,7 +275,7 @@ python genomic_variant_pipeline.py \
 ### Same layout, Mode B — pipeline processes ancestor FASTQs first
 
 ```bash
-python genomic_variant_pipeline.py \
+python genomic_analysis_pipeline.py \
     --project-dir        /data/project \
     --ref-dir            /refs/genome_dir \
     --ref-name           genome_v1.fa \
@@ -359,7 +287,7 @@ python genomic_variant_pipeline.py \
 ### All tools in one environment (no --main-env needed)
 
 ```bash
-python genomic_variant_pipeline.py \
+python genomic_analysis_pipeline.py \
     --project-dir      /data/project \
     --ref-dir          /refs/genome_dir \
     --ref-name         genome_v1.fa \
@@ -367,6 +295,21 @@ python genomic_variant_pipeline.py \
     --ancestor-vcf     ancestor.vcf.gz \
     --ploidy 2 --threads 8
 ```
+## Outputs
+
+```text
+Filtered_against_ancestors/
+SNP/
+INDELS/
+```
+
+Final deliverables:
+
+```text
+*_output.tsv
+*_falsepos.tsv
+```
+containing filtered SNP and INDEL calls and repeat-region false-positive classifications.
 
 ---
 ## License
