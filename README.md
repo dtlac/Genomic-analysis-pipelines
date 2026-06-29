@@ -318,6 +318,48 @@ containing filtered SNP and INDEL calls and repeat-region false-positive classif
 
 ---
 
+Usage examples
+--------------
+Mode A — pre-existing VCFs:
+    Pass --ancestor-vcf-dir and one or more --ancestor-vcf filenames.
+    The pipeline uses those VCFs directly in step 9 filtering.
+
+Mode B — raw FASTQ ancestors:
+    Pass --ancestor-fastq-dir pointing to a folder of paired-end FASTQ files.
+    Steps 1-8 are run on those files first (in <project-dir>/Ancestor/),
+    then the resulting VCFs are used for filtering.
+    Both modes fully support the base-vs-main-env layout described above.
+
+# GATK in base, other tools in genome-analysis env, Mode A ancestors
+python genomic_variant_pipeline.py \\
+    --project-dir      /data/project \\
+    --ref-dir          /refs/genome_dir \\
+    --ref-name         genome_v1.fa \\
+    --main-env         genome-analysis \\
+    --ancestor-vcf-dir /refs/ancestor_vcfs \\
+    --ancestor-vcf     PM_t0.vcf.gz \\
+    --ancestor-vcf     PA_t0.vcf.gz \\
+    --ploidy 4 --threads 20
+
+# Same layout, Mode B — pipeline processes ancestor FASTQs first
+python genomic_variant_pipeline.py \\
+    --project-dir        /data/project \\
+    --ref-dir            /refs/genome_dir \\
+    --ref-name           genome_v1.fa \\
+    --main-env           genome-analysis \\
+    --ancestor-fastq-dir /data/ancestor_reads \\
+    --ploidy 4 --threads 20
+
+# All tools in one environment (no --main-env needed)
+python genomic_variant_pipeline.py \\
+    --project-dir      /data/project \\
+    --ref-dir          /refs/genome_dir \\
+    --ref-name         genome_v1.fa \\
+    --ancestor-vcf-dir /refs/ancestor_vcfs \\
+    --ancestor-vcf     ancestor.vcf.gz \\
+    --ploidy 2 --threads 8
+
+---
 ## License
 
 Add your preferred license here.
