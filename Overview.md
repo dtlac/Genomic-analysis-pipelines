@@ -1,4 +1,4 @@
-# Genomic Variant Calling Pipeline
+# Genomic analysis Pipeline
 
 **Genomics · Python · GATK**
 
