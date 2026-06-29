@@ -318,7 +318,7 @@ containing filtered SNP and INDEL calls and repeat-region false-positive classif
 
 ---
 
-Usage examples
+## Usage examples
 --------------
 Mode A — pre-existing VCFs:
     Pass --ancestor-vcf-dir and one or more --ancestor-vcf filenames.
@@ -330,34 +330,43 @@ Mode B — raw FASTQ ancestors:
     then the resulting VCFs are used for filtering.
     Both modes fully support the base-vs-main-env layout described above.
 
-# GATK in base, other tools in genome-analysis env, Mode A ancestors
-python genomic_variant_pipeline.py \\
-    --project-dir      /data/project \\
-    --ref-dir          /refs/genome_dir \\
-    --ref-name         genome_v1.fa \\
-    --main-env         genome-analysis \\
-    --ancestor-vcf-dir /refs/ancestor_vcfs \\
-    --ancestor-vcf     PM_t0.vcf.gz \\
-    --ancestor-vcf     PA_t0.vcf.gz \\
-    --ploidy 4 --threads 20
+### GATK in base, other tools in genome-analysis env, Mode A ancestors
 
-# Same layout, Mode B — pipeline processes ancestor FASTQs first
-python genomic_variant_pipeline.py \\
-    --project-dir        /data/project \\
-    --ref-dir            /refs/genome_dir \\
-    --ref-name           genome_v1.fa \\
-    --main-env           genome-analysis \\
-    --ancestor-fastq-dir /data/ancestor_reads \\
-    --ploidy 4 --threads 20
+```bash
+python genomic_variant_pipeline.py \
+    --project-dir      /data/project \
+    --ref-dir          /refs/genome_dir \
+    --ref-name         genome_v1.fa \
+    --main-env         genome-analysis \
+    --ancestor-vcf-dir /refs/ancestor_vcfs \
+    --ancestor-vcf     PM_t0.vcf.gz \
+    --ancestor-vcf     PA_t0.vcf.gz \
+    --ploidy 4 --threads 2
+```
 
-# All tools in one environment (no --main-env needed)
-python genomic_variant_pipeline.py \\
-    --project-dir      /data/project \\
-    --ref-dir          /refs/genome_dir \\
-    --ref-name         genome_v1.fa \\
-    --ancestor-vcf-dir /refs/ancestor_vcfs \\
-    --ancestor-vcf     ancestor.vcf.gz \\
+### Same layout, Mode B — pipeline processes ancestor FASTQs first
+
+```bash
+python genomic_variant_pipeline.py \
+    --project-dir        /data/project \
+    --ref-dir            /refs/genome_dir \
+    --ref-name           genome_v1.fa \
+    --main-env           genome-analysis \
+    --ancestor-fastq-dir /data/ancestor_reads \
+    --ploidy 4 --threads 20
+```
+
+### All tools in one environment (no --main-env needed)
+
+```bash
+python genomic_variant_pipeline.py \
+    --project-dir      /data/project \
+    --ref-dir          /refs/genome_dir \
+    --ref-name         genome_v1.fa \
+    --ancestor-vcf-dir /refs/ancestor_vcfs \
+    --ancestor-vcf     ancestor.vcf.gz \
     --ploidy 2 --threads 8
+```
 
 ---
 ## License
