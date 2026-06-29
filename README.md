@@ -273,8 +273,8 @@ python genomic_analysis_pipeline.py \
     --ref-name         genome_v1.fa \
     --main-env         genome-analysis \
     --ancestor-vcf-dir /refs/ancestor_vcfs \
-    --ancestor-vcf     PM_t0.vcf.gz \
-    --ancestor-vcf     PA_t0.vcf.gz \
+    --ancestor-vcf     Ancestor1.vcf.gz \
+    --ancestor-vcf     Ancestor2.vcf.gz \ #Optional
     --ploidy 4 --threads 2
 ```
 
